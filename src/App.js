@@ -101,7 +101,7 @@ function App() {
                   <Tab.Content>
                     <Tab.Pane eventKey="first">
                       
-                      <SubmissionsList searchTerm={searchTerm} orderBy={handleOrderByChange} />
+                      <SubmissionsList searchTerm={searchTerm}  />
                     
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">
