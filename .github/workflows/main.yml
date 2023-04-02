@@ -1,9 +1,9 @@
 
-name: Node.js CI
+name: main.yml CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   build:
