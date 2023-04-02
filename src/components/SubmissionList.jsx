@@ -16,9 +16,12 @@ const SubmissionList = ({ onCardClick, searchTerm }) => {
 
   return (
     <div>
-      {filteredSubmissions.length > 0 && filteredSubmissions.map((submission, index) => (
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
+        {filteredSubmissions.length > 0 && filteredSubmissions.map((submission, index) => (
         <SubmissionCard key={index} submission={submission} onClick={() => onCardClick(index)}/>
       ))}
+      </div>
+      
     </div>
   );
 };

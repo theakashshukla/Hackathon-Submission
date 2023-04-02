@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
-import { getSubmissions} from "./services/localStorage";
+import { getSubmissions } from "./services/localStorage";
 import FavouritesTab from "./components/FavouritesTab";
 import SearchBar from "./components/SearchBar";
 import SubmissionsList from "./components/SubmissionList";
-import SubmissonForm from "./components/SubmissionForm";
 
 
 function App() {
@@ -14,7 +13,7 @@ function App() {
   // const [searchQuery, setSearchQuery] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
 
-  
+
   const handleSearch = (term) => {
     setSearchTerm(term);
   };
@@ -50,7 +49,7 @@ function App() {
   return (
     <div className="App">
 
-      <SubmissonForm />
+      
 
       <Container>
         <Col>
@@ -104,14 +103,8 @@ function App() {
                   <Tab.Content>
                     <Tab.Pane eventKey="first">
                       
-                      {/* {filteredSubmissions.map((submission) => (
-                        <SubmissionsList searchTerm={searchTerm} key={submission.id} submission={submission} />
-                      ))} */}
-                       {filteredSubmissions.map((submission) => (
-    <SubmissionsList searchTerm={searchTerm} key={submission.id} submission={submission} />
-  ))} 
-                       <SubmissionsList searchTerm={searchTerm}  />
-                      
+                      <SubmissionsList searchTerm={searchTerm} />
+                    
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">
 
