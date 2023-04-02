@@ -34,7 +34,7 @@ const SubmissionForm = () => {
   };
 
   return (
-    <div className="m-12">
+    <div className="m-12" >
       <Form onSubmit={handleSubmit}>
         <Row className="m-2">
           <Form.Group controlId="formTitle">

@@ -56,9 +56,6 @@ function App() {
           <Row>
             <h1 className="text-center">Submissions</h1>
           </Row>
-          <Row>
-            <h1 className="text-center">Submissions</h1>
-          </Row>
         </Col>
         <Col>
           <Row>
@@ -77,22 +74,23 @@ function App() {
                       </Nav>
                     </Row>
                   </Col>
+
                   <Col sm={5}>
                     <Row>
-                      <div className="flex-col">
-                        <Col sm={2}>
+                      <div className="">
+                        <Row sm={2}>
                           <SearchBar
                             onSearch={handleSearch}
                           />
-                        </Col>
-                        <Col sm={2}>
+                        </Row>
+                        <Row sm={2}>
                           <select
                             value={orderBy} onChange={handleOrderByChange}
                           >
                             <option value="newest">Newest</option>
                             <option value="oldest">Oldest</option>
                           </select>
-                        </Col>
+                        </Row>
                       </div>
                     </Row>
                   </Col>
@@ -103,7 +101,7 @@ function App() {
                   <Tab.Content>
                     <Tab.Pane eventKey="first">
                       
-                      <SubmissionsList searchTerm={searchTerm} />
+                      <SubmissionsList searchTerm={searchTerm} orderBy={handleOrderByChange} />
                     
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">

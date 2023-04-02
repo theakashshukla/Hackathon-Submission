@@ -12,9 +12,9 @@ const SearchBar = ({ onSearch }) => {
 
   return (
     <Form.Group controlId="formSearch">
-      <Form.Control
+      <Form.Control style={{ width: "300px" }}
         type="text"
-        placeholder="Search by title"
+        placeholder="Search by Title"
         value={searchTerm}
         onChange={handleChange}
       />
