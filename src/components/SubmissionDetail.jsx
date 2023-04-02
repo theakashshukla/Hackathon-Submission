@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Card, Button, Modal } from "react-bootstrap";
 import { updateSubmission, deleteSubmission } from "../services/localStorage";
 
-const SubmissionDetails = ({ submission, index }) => {
+const SubmissionDetail = ({ submission, index }) => {
   const [editMode, setEditMode] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState(submission);
@@ -57,18 +57,19 @@ const SubmissionDetails = ({ submission, index }) => {
             GitHub Repository:{" "}
             <a href={submission.githubRepoLink}>{submission.githubRepoLink}</a>
           </Card.Text>
-          {submission.otherLinks && submission.otherLinks.length > 0 && (
-            <Card.Text>
-              Other Links:
-              <ul>
-                {submission.otherLinks.map((link, i) => (
-                  <li key={i}>
-                    <a href={link}>{link}</a>
-                  </li>
-                ))}
-              </ul>
-            </Card.Text>
-          )}
+          {Array.isArray(submission.otherLinks) &&
+            submission.otherLinks.length > 0 && (
+              <Card.Text>
+                Other Links:
+                <ul>
+                  {submission.otherLinks.map((link, i) => (
+                    <li key={i}>
+                      <a href={link}>{link}</a>
+                    </li>
+                  ))}
+                </ul>
+              </Card.Text>
+            )}
           <Card.Footer>
             {editMode ? (
               <>
@@ -127,3 +128,4 @@ const SubmissionDetails = ({ submission, index }) => {
     </>
   );
 };
+export default SubmissionDetail;

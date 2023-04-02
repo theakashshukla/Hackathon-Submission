@@ -11,8 +11,8 @@ const Header = () => {
   // };
 
   return (
-    // Create header withh left buttonn anndright side image with reactbootstrapp
 
+    // Create header withh left buttonn anndright side image with reactbootstrapp
     //  <AppBar position="static">
     //    <Header>
     //     <div className="header">
@@ -21,9 +21,8 @@ const Header = () => {
     //           className="header__logo"
     //           src="https://www.freepnglogos.com/uploads/spotify-logo-png/file-spotify-logo-png-4.png"
     //           alt=""
-
     //         />
-    //         <h1>HH</h1>
+    //         <h1>Hi</h1>
     //       </div>
     //     </div>
     //   </Header>
