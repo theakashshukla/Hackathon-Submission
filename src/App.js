@@ -4,6 +4,7 @@ import { getSubmissions} from "./services/localStorage";
 import FavouritesTab from "./components/FavouritesTab";
 import SearchBar from "./components/SearchBar";
 import SubmissionsList from "./components/SubmissionList";
+import SubmissonForm from "./components/SubmissionForm";
 
 
 function App() {
@@ -49,7 +50,7 @@ function App() {
   return (
     <div className="App">
 
-      {/* <Header/> */}
+      <SubmissonForm />
 
       <Container>
         <Col>
