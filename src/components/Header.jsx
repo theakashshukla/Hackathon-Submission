@@ -4,11 +4,11 @@ import { Button, Col, Container, Image, Row } from 'react-bootstrap';
 // import { Link as RouterLink } from "react-router-dom";
 
 const Header = () => {
-  const [value, setValue] = React.useState(0);
+  // const [value, setValue] = React.useState(0);
 
-  const handleTabChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  // const handleTabChange = (event, newValue) => {
+  //   setValue(newValue);
+  // };
 
   return (
     // Create header withh left buttonn anndright side image with reactbootstrapp

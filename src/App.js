@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
-import { getSubmissions, saveSubmission} from "./services/localStorage";
+import { getSubmissions} from "./services/localStorage";
 import FavouritesTab from "./components/FavouritesTab";
 import SearchBar from "./components/SearchBar";
 import SubmissionsList from "./components/SubmissionList";
-import Header from "./components/Header";
+
 
 function App() {
 
@@ -23,10 +23,10 @@ function App() {
     setSubmissions(getSubmissions());
   }, []);
 
-  const handleAddSubmission = (submission) => {
-    saveSubmission(submission);
-    setSubmissions([...submissions, submission]);
-  };
+  // const handleAddSubmission = (submission) => {
+  //   saveSubmission(submission);
+  //   setSubmissions([...submissions, submission]);
+  // };
 
 
   const handleOrderByChange = (e) => {
