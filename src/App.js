@@ -66,38 +66,38 @@ function App() {
             <Tab.Container id="left-tabs-example" defaultActiveKey="first">
               <Col>
                 <Row sm={3}>
-                  <Col sm={5}>
-                    <Row >
-                      <Nav variant="pills" className="flex-col">
-                        <Nav.Item>
-                          <Nav.Link eventKey="first">All Submissions</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                          <Nav.Link eventKey="second">Favourite Submission</Nav.Link>
-                        </Nav.Item>
-                      </Nav>
-                    </Row>
-                  </Col>
 
-                  <Col sm={5}>
-                    <Row>
-                      <div className="">
-                        <Row sm={2}>
-                          <SearchBar
-                            onSearch={handleSearch}
-                          />
-                        </Row>
-                        <Row sm={2}>
-                          <select
-                            value={orderBy} onChange={handleOrderByChange}
-                          >
-                            <option value="newest">Newest</option>
-                            <option value="oldest">Oldest</option>
-                          </select>
-                        </Row>
-                      </div>
-                    </Row>
-                  </Col>
+                  <Row >
+                    <Nav variant="pills" className="flex-col">
+                      <Nav.Item>
+                        <Nav.Link eventKey="first">All Submissions</Nav.Link>
+                      </Nav.Item>
+                      <Nav.Item>
+                        <Nav.Link eventKey="second">Favourite Submission</Nav.Link>
+                      </Nav.Item>
+                    </Nav>
+                  </Row>
+
+
+
+                  <Row>
+                    <div className="">
+                      <Col sm={2}>
+                        <SearchBar
+                          onSearch={handleSearch}
+                        />
+                      </Col>
+                      <Col sm={2}>
+                        <select
+                          value={orderBy} onChange={handleOrderByChange}
+                        >
+                          <option value="newest">Newest</option>
+                          <option value="oldest">Oldest</option>
+                        </select>
+                      </Col>
+                    </div>
+                  </Row>
+
                 </Row>
 
 
@@ -119,7 +119,6 @@ function App() {
           </Row>
         </Col>
       </Container>
-
     </div>
   );
 }
