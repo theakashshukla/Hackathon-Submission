@@ -4,6 +4,7 @@ import { getSubmissions } from "./services/localStorage";
 import FavouritesTab from "./components/FavouritesTab";
 import SearchBar from "./components/SearchBar";
 import SubmissionsList from "./components/SubmissionList";
+import Header from "./components/Header";
 
 
 function App() {
@@ -48,8 +49,11 @@ function App() {
 
   return (
     <div className="App">
-
-      
+      <main>
+        <div className="container">
+          <Header />
+        </div>
+      </main>
 
       <Container>
         <Col>
@@ -100,9 +104,9 @@ function App() {
                 <Row sm={9}>
                   <Tab.Content>
                     <Tab.Pane eventKey="first">
-                      
-                      <SubmissionsList searchTerm={searchTerm}  />
-                    
+
+                      <SubmissionsList searchTerm={searchTerm} />
+
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">
 
