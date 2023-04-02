@@ -4,7 +4,7 @@ import { getSubmissions } from "./services/localStorage";
 import FavouritesTab from "./components/FavouritesTab";
 import SearchBar from "./components/SearchBar";
 import SubmissionsList from "./components/SubmissionList";
-import Header from "./components/Header";
+// import Header from "./components/Header";
 
 
 function App() {
@@ -50,9 +50,9 @@ function App() {
   return (
     <div className="App">
       <main>
-        <div className="container">
+        {/* <div className="container">
           <Header />
-        </div>
+        </div> */}
       </main>
 
       <Container>

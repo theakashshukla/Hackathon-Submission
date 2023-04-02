@@ -8,6 +8,7 @@ const SubmissionDetail = ({ submission, index }) => {
   const [formData, setFormData] = useState(submission);
   const [isFavorite, setIsFavorite] = useState(submission.isFavorite);
 
+  // eslint-disable-next-line no-unused-vars
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
