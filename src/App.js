@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
 import { getSubmissions } from "./services/localStorage";
 import FavouritesTab from "./components/FavouritesTab";
 import SearchBar from "./components/SearchBar";
 import SubmissionsList from "./components/SubmissionList";
 import Header from "./components/Header";
+import SubmissionForm from "./components/SubmissionForm";
 
 
 function App() {
@@ -31,30 +33,35 @@ function App() {
 
 
   const handleOrderByChange = (e) => {
-    setOrderBy(e.target.value);
-  };
+    const value = e.target.value;
+    setOrderBy(value);
 
-  const filteredSubmissions = [...submissions];
-  if (orderBy === "newest") {
-    filteredSubmissions.sort(
-      (a, b) => new Date(b.submissionTime) - new Date(a.submissionTime)
-    );
-  } else {
-    filteredSubmissions.sort(
-      (a, b) => new Date(a.submissionTime) - new Date(b.submissionTime)
-    );
-  }
+    if (value === "newest") {
+      setSubmissions([...submissions].sort(
+        (a, b) => new Date(b.submissionTime) - new Date(a.submissionTime)
+      ));
+    } else if (value === "oldest") {
+      setSubmissions([...submissions].sort(
+        (a, b) => new Date(a.submissionTime) - new Date(b.submissionTime)
+      ));
+    }
+  };
+  const filteredSubmissions = orderBy === "newest"
+    ? [...submissions].sort((a, b) => new Date(b.submissionTime) - new Date(a.submissionTime))
+    : [...submissions].sort((a, b) => new Date(a.submissionTime) - new Date(b.submissionTime));
+
 
 
 
   return (
     <div className="App">
-      <main>
-        <div className="container">
-          <Header />
-        </div>
-      </main>
-
+      <Header />
+      <Router>
+      <Routes>
+        <Route path="/submit" element={<SubmissionForm />} />
+      </Routes>
+    </Router>
+      
       <Container>
         <Col>
           <Row>
@@ -63,33 +70,35 @@ function App() {
         </Col>
         <Col>
           <Row>
-            <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+            <Tab.Container
+              id="left-tabs-example"
+              defaultActiveKey="first"
+            >
               <Col>
                 <Row sm={3}>
-
-                  <Row >
+                  <Row>
                     <Nav variant="pills" className="flex-col">
                       <Nav.Item>
-                        <Nav.Link eventKey="first">All Submissions</Nav.Link>
+                        <Nav.Link eventKey="first">
+                          All Submissions
+                        </Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
-                        <Nav.Link eventKey="second">Favourite Submission</Nav.Link>
+                        <Nav.Link eventKey="second">
+                          Favourite Submissions
+                        </Nav.Link>
                       </Nav.Item>
                     </Nav>
                   </Row>
-
-
-
                   <Row>
                     <div className="">
                       <Col sm={2}>
-                        <SearchBar
-                          onSearch={handleSearch}
-                        />
+                        <SearchBar onSearch={handleSearch} />
                       </Col>
                       <Col sm={2}>
                         <select
-                          value={orderBy} onChange={handleOrderByChange}
+                          value={orderBy}
+                          onChange={handleOrderByChange}
                         >
                           <option value="newest">Newest</option>
                           <option value="oldest">Oldest</option>
@@ -97,19 +106,13 @@ function App() {
                       </Col>
                     </div>
                   </Row>
-
                 </Row>
-
-
                 <Row sm={9}>
                   <Tab.Content>
                     <Tab.Pane eventKey="first">
-
                       <SubmissionsList searchTerm={searchTerm} />
-
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">
-
                       <FavouritesTab submissions={filteredSubmissions} />
                     </Tab.Pane>
                   </Tab.Content>
@@ -119,8 +122,11 @@ function App() {
           </Row>
         </Col>
       </Container>
+
+
     </div>
   );
+
 }
 
 export default App;
