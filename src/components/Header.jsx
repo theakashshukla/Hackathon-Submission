@@ -25,7 +25,8 @@ const Header = () => {
             <div>
               <h1>Hackathon Submissions</h1>
               <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita aut id blanditiis ea error distinctio quo sint illo a illum, fugit non labore, voluptas consequatur voluptatum nulla alias! Numquam, inventore?</h3>
-              <Button variant="success" style={{height:"50px"}} onClick={handleClick}>Upload Submission</Button>
+              <Button variant="success"  onClick={handleClick}>Upload Submission</Button>
+
             </div>
           </Col>
           <Col xs={12} md={6}>
